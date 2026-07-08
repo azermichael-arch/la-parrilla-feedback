@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>La Parrilla Feedback</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div id="mainScreen">
+
+    <div class="logo">
+
+        🔥
+
+        <h1>LA PARRILLA</h1>
+
+    </div>
+
+    <h2>How did we do today?</h2>
+
+    <p>Your feedback helps us improve every day.</p>
+
+    <div class="buttons">
+
+        <button class="emoji happy" onclick="rate('Happy')">
+
+            😊
+
+            <span>Loved It</span>
+
+        </button>
+
+        <button class="emoji neutral" onclick="rate('Neutral')">
+
+            😐
+
+            <span>It Was OK</span>
+
+        </button>
+
+        <button class="emoji sad" onclick="rate('Sad')">
+
+            ☹️
+
+            <span>Needs Improvement</span>
+
+        </button>
+
+    </div>
+
+</div>
+
+<div id="reasonScreen" style="display:none;">
+
+    <div class="logo">
+
+        🔥
+
+        <h1>LA PARRILLA</h1>
+
+    </div>
+
+    <h2 id="reasonTitle"></h2>
+
+    <div class="reasonButtons">
+
+        <button onclick="sendReason('Food Quality')">🍔 Food Quality</button>
+
+        <button onclick="sendReason('Waiting Time')">⏱ Waiting Time</button>
+
+        <button onclick="sendReason('Staff Service')">👨‍🍳 Staff Service</button>
+
+        <button onclick="sendReason('Cleanliness')">🧼 Cleanliness</button>
+
+        <button onclick="sendReason('Value for Money')">💰 Value</button>
+
+        <button onclick="sendReason('Other')">📝 Other</button>
+
+    </div>
+
+</div>
+
+<div id="thankYou" style="display:none;">
+
+    <div class="heart">
+
+        ❤️
+
+    </div>
+
+    <h1>Thank You!</h1>
+
+    <p>We appreciate your feedback.</p>
+
+</div>
+
+<script src="config.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
