@@ -1,6 +1,12 @@
+let alreadySubmitted = false;
+
 let currentRating = "";
 
 function rate(rating){
+
+    if(alreadySubmitted) return;
+
+    alreadySubmitted = true;
 
     currentRating = rating;
 
@@ -13,17 +19,12 @@ function rate(rating){
     }
 
     document.getElementById("mainScreen").style.display="none";
-
     document.getElementById("reasonScreen").style.display="block";
 
     if(rating=="Sad")
-
         document.getElementById("reasonTitle").innerHTML="We're Sorry.<br>What went wrong?";
-
     else
-
         document.getElementById("reasonTitle").innerHTML="Thank you.<br>What can we improve?";
-
 }
 
 function sendReason(reason){
