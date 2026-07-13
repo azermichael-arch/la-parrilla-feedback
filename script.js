@@ -41,17 +41,15 @@ function submitFeedback(reason){
     document.getElementById("thankYou").style.display="block";
 
     // Send feedback in the background
-   fetch(CONFIG.apiUrl,{
+fetch(CONFIG.apiUrl,{
     method:"POST",
-    headers:{
-        "Content-Type":"application/json"
-    },
     body:JSON.stringify({
         branch:CONFIG.branch,
         device:CONFIG.device,
         rating:currentRating,
         reason:reason
     })
+})
 })
 .then(response=>{
     console.log("Status:", response.status);
