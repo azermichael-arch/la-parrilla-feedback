@@ -41,27 +41,26 @@ function submitFeedback(reason){
     document.getElementById("thankYou").style.display="block";
 
     // Send feedback in the background
-    fetch(CONFIG.apiUrl,{
-        method:"POST",
-        headers:{
-            "Content-Type":"application/json"
-        },
-        body:JSON.stringify({
-            branch:CONFIG.branch,
-            device:CONFIG.device,
-            rating:currentRating,
-            reason:reason
-        })
-    }).catch(error=>{
-        console.log(error);
-    });
-
-    // Reset after 2 seconds
-    setTimeout(function(){
-        location.reload();
-    },2000);
-    console.log("Submitting feedback...");
-console.log(currentRating);
-console.log(reason);
-
+   fetch(CONFIG.apiUrl,{
+    method:"POST",
+    headers:{
+        "Content-Type":"application/json"
+    },
+    body:JSON.stringify({
+        branch:CONFIG.branch,
+        device:CONFIG.device,
+        rating:currentRating,
+        reason:reason
+    })
+})
+.then(response=>{
+    console.log("Status:", response.status);
+    return response.text();
+})
+.then(data=>{
+    console.log("Response:", data);
+})
+.catch(error=>{
+    console.error("Fetch Error:", error);
+});
 }
