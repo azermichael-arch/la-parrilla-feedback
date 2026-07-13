@@ -60,5 +60,8 @@ function submitFeedback(reason){
     setTimeout(function(){
         location.reload();
     },2000);
+    console.log("Submitting feedback...");
+console.log(currentRating);
+console.log(reason);
 
 }
