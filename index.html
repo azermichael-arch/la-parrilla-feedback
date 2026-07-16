@@ -1,107 +1,189 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<title>La Parrilla Feedback</title>
+    <title>La Parrilla Smart Display</title>
 
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-<div id="mainScreen">
+<header id="header">
 
-    <div class="logo">
-
-        🔥
-
-        <h1>LA PARRILLA</h1>
-
+    <div id="logo">
+        LA PARRILLA
     </div>
 
-    <h2>How did we do today?</h2>
+</header>
 
-    <p>Your feedback helps us improve every day.</p>
 
-    <div class="buttons">
+<main>
 
-        <button class="emoji happy" onclick="rate('Happy')">
+    <!-- PROMOTION SCREEN -->
 
-            😊
+    <section id="promotionScreen" class="screen">
 
-            <span>Loved It</span>
+        <img id="promotionImage" alt="La Parrilla promotion">
 
-        </button>
+        <div id="promotionTitle">
+            Promotion Title
+        </div>
 
-        <button class="emoji neutral" onclick="rate('Neutral')">
+        <div id="promotionPrice">
+            220 EGP
+        </div>
 
-            😐
+    </section>
 
-            <span>It Was OK</span>
 
-        </button>
+    <!-- FEEDBACK SCREEN -->
 
-        <button class="emoji sad" onclick="rate('Sad')">
+    <section id="feedbackScreen" class="screen">
 
-            ☹️
+        <h1>
+            How was your experience today?
+        </h1>
 
-            <span>Needs Improvement</span>
+        <p class="screenMessage">
+            Tap one face to share your feedback
+        </p>
 
-        </button>
+        <div id="emojiContainer">
 
-    </div>
+            <button class="emoji"
+                    type="button"
+                    onclick="rate('Happy')">
 
-</div>
+                😊
 
-<div id="reasonScreen" style="display:none;">
+                <span>Loved It</span>
 
-    <div class="logo">
+            </button>
 
-        🔥
 
-        <h1>LA PARRILLA</h1>
+            <button class="emoji"
+                    type="button"
+                    onclick="rate('Neutral')">
 
-    </div>
+                😐
 
-    <h2 id="reasonTitle"></h2>
+                <span>It Was OK</span>
 
-    <div class="reasonButtons">
+            </button>
 
-        <button onclick="sendReason('Food Quality')">🍔 Food Quality</button>
 
-        <button onclick="sendReason('Waiting Time')">⏱ Waiting Time</button>
+            <button class="emoji"
+                    type="button"
+                    onclick="rate('Sad')">
 
-        <button onclick="sendReason('Staff Service')">👨‍🍳 Staff Service</button>
+                ☹️
 
-        <button onclick="sendReason('Cleanliness')">🧼 Cleanliness</button>
+                <span>Needs Improvement</span>
 
-        <button onclick="sendReason('Value for Money')">💰 Value</button>
+            </button>
 
-        <button onclick="sendReason('Other')">📝 Other</button>
+        </div>
 
-    </div>
+    </section>
 
-</div>
 
-<div id="thankYou" style="display:none;">
+    <!-- REASON SCREEN -->
 
-    <div class="heart">
+    <section id="reasonScreen" class="screen">
 
-        ❤️
+        <h1 id="reasonTitle">
+            What can we improve?
+        </h1>
 
-    </div>
+        <div id="reasonButtons">
 
-    <h1>Thank You!</h1>
+            <button type="button"
+                    onclick="sendReason('Food Quality')">
+                🍔 Food Quality
+            </button>
 
-    <p>We appreciate your feedback.</p>
+            <button type="button"
+                    onclick="sendReason('Waiting Time')">
+                ⏱ Waiting Time
+            </button>
 
-</div>
+            <button type="button"
+                    onclick="sendReason('Staff Service')">
+                👨‍🍳 Staff Service
+            </button>
+
+            <button type="button"
+                    onclick="sendReason('Cleanliness')">
+                🧼 Cleanliness
+            </button>
+
+            <button type="button"
+                    onclick="sendReason('Value for Money')">
+                💰 Value for Money
+            </button>
+
+            <button type="button"
+                    onclick="sendReason('Other')">
+                📝 Other
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- VIDEO SCREEN -->
+
+    <section id="videoScreen" class="screen">
+
+        <video id="promoVideo"
+               autoplay
+               muted
+               loop
+               playsinline>
+        </video>
+
+    </section>
+
+
+    <!-- MENU SCREEN -->
+
+    <section id="menuScreen" class="screen">
+
+        <img id="menuImage" alt="La Parrilla menu">
+
+    </section>
+
+
+    <!-- THANK-YOU SCREEN -->
+
+    <section id="thankYouScreen" class="screen">
+
+        <div id="thankYouIcon">
+            ❤️
+        </div>
+
+        <h1>
+            Thank You!
+        </h1>
+
+        <p>
+            We appreciate your feedback.
+        </p>
+
+    </section>
+
+</main>
+
 
 <script src="config.js"></script>
 
