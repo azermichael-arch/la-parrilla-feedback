@@ -1,183 +1,283 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>La Parrilla Smart Display</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="style.css?v=4"
+    >
 
 </head>
 
 <body>
 
-<header id="header">
+    <!-- ========================================= -->
+    <!-- HEADER -->
+    <!-- ========================================= -->
 
-    <div id="logo">
-        LA PARRILLA
-    </div>
+    <header id="header">
 
-</header>
-
-
-<main>
-
-    <!-- PROMOTION SCREEN -->
-
-    <section id="promotionScreen" class="screen">
-
-        <img id="promotionImage" alt="La Parrilla promotion">
-
-        <div id="promotionTitle">
-            Promotion Title
+        <div id="logo">
+            LA PARRILLA
         </div>
 
-        <div id="promotionPrice">
-            220 EGP
-        </div>
-
-    </section>
+    </header>
 
 
-    <!-- FEEDBACK SCREEN -->
+    <!-- ========================================= -->
+    <!-- MAIN APPLICATION -->
+    <!-- ========================================= -->
 
-    <section id="feedbackScreen" class="screen">
+    <main>
 
-        <h1>
-            How was your experience today?
-        </h1>
 
-        <p class="screenMessage">
-            Tap one face to share your feedback
-        </p>
+        <!-- ===================================== -->
+        <!-- PROMOTION SCREEN -->
+        <!-- ===================================== -->
 
-        <div id="emojiContainer"
-     style="display:flex;
-            flex-direction:row;
-            justify-content:center;
-            align-items:flex-start;
-            gap:60px;
-            width:100%;
-            margin-top:50px;
-            flex-wrap:nowrap;">
+        <section
+            id="promotionScreen"
+            class="screen"
+        >
 
-            <button class="emoji"
+            <img
+                id="promotionImage"
+                src=""
+                alt="La Parrilla promotion"
+            >
+
+            <div id="promotionTitle">
+                Promotion Title
+            </div>
+
+            <div id="promotionPrice">
+                220 EGP
+            </div>
+
+        </section>
+
+
+        <!-- ===================================== -->
+        <!-- FEEDBACK SCREEN -->
+        <!-- ===================================== -->
+
+        <section
+            id="feedbackScreen"
+            class="screen"
+        >
+
+            <h1>
+                How was your experience today?
+            </h1>
+
+            <p class="screenMessage">
+                Tap one face to share your feedback
+            </p>
+
+            <div
+                id="emojiContainer"
+                style="
+                    display:flex;
+                    flex-direction:row;
+                    justify-content:center;
+                    align-items:flex-start;
+                    gap:60px;
+                    width:100%;
+                    margin-top:50px;
+                    flex-wrap:nowrap;
+                "
+            >
+
+                <button
+                    class="emoji"
                     type="button"
-                    onclick="rate('Happy')">
+                    onclick="rate('Happy')"
+                >
 
-                😊
+                    😊
 
-                <span>Loved It</span>
+                    <span>
+                        Loved It
+                    </span>
 
-            </button>
+                </button>
 
 
-            <button class="emoji"
+                <button
+                    class="emoji"
                     type="button"
-                    onclick="rate('Neutral')">
+                    onclick="rate('Neutral')"
+                >
 
-                😐
+                    😐
 
-                <span>It Was OK</span>
+                    <span>
+                        It Was OK
+                    </span>
 
-            </button>
+                </button>
 
 
-            <button class="emoji"
+                <button
+                    class="emoji"
                     type="button"
-                    onclick="rate('Sad')">
+                    onclick="rate('Sad')"
+                >
 
-                ☹️
+                    ☹️
 
-                <span>Needs Improvement</span>
+                    <span>
+                        Needs Improvement
+                    </span>
 
-            </button>
+                </button>
 
-        </div>
+            </div>
 
-    </section>
-
-
-    <!-- REASON SCREEN -->
-
-    <section id="reasonScreen" class="screen">
-
-        <h1 id="reasonTitle">
-            What can we improve?
-        </h1>
-
-       <div id="reasonButtons">
-
-    <button onclick="sendReason(this.innerText)"></button>
-
-    <button onclick="sendReason(this.innerText)"></button>
-
-    <button onclick="sendReason(this.innerText)"></button>
-
-    <button onclick="sendReason(this.innerText)"></button>
-
-    <button onclick="sendReason(this.innerText)"></button>
-
-    <button onclick="sendReason(this.innerText)"></button>
-
-</div>
-
-    </section>
+        </section>
 
 
-    <!-- VIDEO SCREEN -->
+        <!-- ===================================== -->
+        <!-- REASON SCREEN -->
+        <!-- ===================================== -->
 
-    <section id="videoScreen" class="screen">
+        <section
+            id="reasonScreen"
+            class="screen"
+        >
 
-        <video id="promoVideo"
-               autoplay
-               muted
-               loop
-               playsinline>
-        </video>
+            <h1 id="reasonTitle">
+                What can we improve?
+            </h1>
 
-    </section>
+            <div id="reasonButtons">
+
+                <button
+                    type="button"
+                    onclick="sendReason(this.innerText)"
+                >
+                </button>
+
+                <button
+                    type="button"
+                    onclick="sendReason(this.innerText)"
+                >
+                </button>
+
+                <button
+                    type="button"
+                    onclick="sendReason(this.innerText)"
+                >
+                </button>
+
+                <button
+                    type="button"
+                    onclick="sendReason(this.innerText)"
+                >
+                </button>
+
+                <button
+                    type="button"
+                    onclick="sendReason(this.innerText)"
+                >
+                </button>
+
+                <button
+                    type="button"
+                    onclick="sendReason(this.innerText)"
+                >
+                </button>
+
+            </div>
+
+        </section>
 
 
-    <!-- MENU SCREEN -->
+        <!-- ===================================== -->
+        <!-- VIDEO SCREEN -->
+        <!-- ===================================== -->
 
-    <section id="menuScreen" class="screen">
+        <section
+            id="videoScreen"
+            class="screen"
+        >
 
-        <img id="menuImage" alt="La Parrilla menu">
+            <video
+                id="promoVideo"
+                autoplay
+                muted
+                loop
+                playsinline
+            >
 
-    </section>
+                Your browser does not support video playback.
 
+            </video>
 
-    <!-- THANK-YOU SCREEN -->
-
-    <section id="thankYouScreen" class="screen">
-
-        <div id="thankYouIcon">
-            ❤️
-        </div>
-
-        <h1>
-            Thank You!
-        </h1>
-
-        <p>
-            We appreciate your feedback.
-        </p>
-
-    </section>
-
-</main>
+        </section>
 
 
-<script src="config.js"></script>
+        <!-- ===================================== -->
+        <!-- MENU SCREEN -->
+        <!-- ===================================== -->
 
-<script src="script.js"></script>
+        <section
+            id="menuScreen"
+            class="screen"
+        >
+
+            <img
+                id="menuImage"
+                src=""
+                alt="La Parrilla menu"
+            >
+
+        </section>
+
+
+        <!-- ===================================== -->
+        <!-- THANK-YOU SCREEN -->
+        <!-- ===================================== -->
+
+        <section
+            id="thankYouScreen"
+            class="screen"
+        >
+
+            <div id="thankYouIcon">
+                ❤️
+            </div>
+
+            <h1>
+                Thank You!
+            </h1>
+
+            <p>
+                We appreciate your feedback.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- ========================================= -->
+    <!-- JAVASCRIPT FILES -->
+    <!-- ========================================= -->
+
+    <script src="config.js?v=4"></script>
+
+    <script src="script.js?v=4"></script>
 
 </body>
 
