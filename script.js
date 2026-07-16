@@ -1,3 +1,7 @@
+// ==========================================
+// GLOBAL VARIABLES
+// ==========================================
+
 let promotionIndex = 0;
 
 let promotionTimer = null;
@@ -7,6 +11,61 @@ let currentRating = "";
 let feedbackSubmitted = false;
 
 let ratingSelected = false;
+
+
+// ==========================================
+// REASON LISTS
+// ==========================================
+
+const HAPPY_REASONS = [
+
+    "🍔 Food Taste",
+
+    "👨‍🍳 Friendly Staff",
+
+    "⚡ Fast Service",
+
+    "🧼 Cleanliness",
+
+    "💰 Great Value",
+
+    "⭐ Everything was Excellent"
+
+];
+
+
+const NEUTRAL_REASONS = [
+
+    "🍔 Food Quality",
+
+    "⏱ Waiting Time",
+
+    "👨‍🍳 Staff Service",
+
+    "🧼 Cleanliness",
+
+    "💰 Value for Money",
+
+    "📝 Other"
+
+];
+
+
+const SAD_REASONS = [
+
+    "🍔 Food Quality",
+
+    "⏱ Long Waiting Time",
+
+    "👨‍🍳 Staff Attitude",
+
+    "🧼 Cleanliness",
+
+    "❌ Order Accuracy",
+
+    "📝 Other"
+
+];
 
 
 // ==========================================
@@ -103,7 +162,10 @@ function showScreen(name) {
 
 function startPromotion() {
 
-    if (!PROMOTIONS || PROMOTIONS.length === 0) {
+    if (
+        typeof PROMOTIONS === "undefined" ||
+        PROMOTIONS.length === 0
+    ) {
 
         console.error("No promotions were found.");
 
@@ -166,29 +228,73 @@ function rate(rating) {
 
     if (rating === "Happy") {
 
-        submitFeedback("");
+        document.getElementById("reasonTitle").innerHTML =
+            "What did you enjoy the most today?";
+
+        loadReasons(HAPPY_REASONS);
+
+        showScreen("reason");
 
         return;
 
     }
 
 
-    if (rating === "Sad") {
+    if (rating === "Neutral") {
 
         document.getElementById("reasonTitle").innerHTML =
-            "We're sorry.<br>What went wrong?";
+            "What can we improve?";
 
-    } else {
+        loadReasons(NEUTRAL_REASONS);
 
-        document.getElementById("reasonTitle").innerHTML =
-            "Thank you.<br>What can we improve?";
+        showScreen("reason");
+
+        return;
 
     }
+
+
+    document.getElementById("reasonTitle").innerHTML =
+        "We're sorry.<br>What disappointed you today?";
+
+    loadReasons(SAD_REASONS);
 
     showScreen("reason");
 
 }
 
+
+// ==========================================
+// LOAD REASON BUTTONS
+// ==========================================
+
+function loadReasons(reasonList) {
+
+    const buttons =
+        document.querySelectorAll("#reasonButtons button");
+
+    for (let i = 0; i < buttons.length; i++) {
+
+        if (reasonList[i]) {
+
+            buttons[i].innerHTML = reasonList[i];
+
+            buttons[i].style.display = "block";
+
+        } else {
+
+            buttons[i].style.display = "none";
+
+        }
+
+    }
+
+}
+
+
+// ==========================================
+// REASON SELECTED
+// ==========================================
 
 function sendReason(reason) {
 
@@ -198,10 +304,36 @@ function sendReason(reason) {
 
     }
 
-    submitFeedback(reason);
+    const cleanReason = reason
+
+        .replace("🍔", "")
+
+        .replace("👨‍🍳", "")
+
+        .replace("⚡", "")
+
+        .replace("🧼", "")
+
+        .replace("💰", "")
+
+        .replace("⭐", "")
+
+        .replace("⏱", "")
+
+        .replace("❌", "")
+
+        .replace("📝", "")
+
+        .trim();
+
+    submitFeedback(cleanReason);
 
 }
 
+
+// ==========================================
+// SUBMIT FEEDBACK
+// ==========================================
 
 function submitFeedback(reason) {
 
@@ -214,7 +346,7 @@ function submitFeedback(reason) {
     feedbackSubmitted = true;
 
 
-    // Give the customer immediate confirmation.
+    // Show confirmation immediately.
 
     showScreen("thankyou");
 
@@ -237,9 +369,7 @@ function submitFeedback(reason) {
 
     /*
        Do not add an application/json Content-Type header.
-
-       That header causes a CORS preflight problem with
-       Google Apps Script when hosted on GitHub Pages.
+       This avoids the Google Apps Script CORS preflight problem.
     */
 
     fetch(CONFIG.apiUrl, {
@@ -279,6 +409,10 @@ function submitFeedback(reason) {
 
 }
 
+
+// ==========================================
+// RESET FEEDBACK
+// ==========================================
 
 function resetFeedbackScreen() {
 
